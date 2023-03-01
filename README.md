@@ -9,7 +9,7 @@ the actual token secret. This implementation serves as an example only.
 Once deployed to AWS as a Lamda function, you can configure a Function URL to allow calling the
 function at an HTTP URL, or you could integrate it as an AWS API Gateway proxy handler. You would
 then give the SolarNetwork token to the client. The client would then invoke the function URL to
-obtain
+obtain the signing key that can then be used to sign SolarNetwork API requests.
 
 > :warning: Note how the token secret configured on the Lamda must be for the token you give to the
 > client!
