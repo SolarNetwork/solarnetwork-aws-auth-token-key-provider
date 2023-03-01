@@ -1,0 +1,3 @@
+rootProject.name = 'solarnetwork-aws-lamda-token-key-provider'
+include('app')
+project(':app').name = "s10k-aws-lamda-token-key-provider"

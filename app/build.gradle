@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+}
+
+repositories {
+	mavenCentral()
+}
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
+		
+dependencies {
+	implementation('net.solarnetwork.common:net.solarnetwork.common:[2.13,3.0)') {
+		exclude group: 'com.fasterxml.jackson.core'
+		exclude group: 'com.fasterxml.jackson.datatype'
+		exclude group: 'commons-beanutils'
+		exclude group: 'net.sf.supercsv'
+		exclude group: 'org.apache.commons'
+		exclude group: 'org.slf4j'
+		exclude group: 'org.springframework'
+	}
+	implementation('org.springframework:spring-core:[4.3,5.0)') {
+		exclude group: 'commons-logging'
+	}
+	implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+	implementation 'com.amazonaws:aws-lambda-java-events:3.11.0'
+	
+
+	testImplementation 'org.junit.jupiter:junit-jupiter:[5.9,6.0)'
+	testImplementation 'org.hamcrest:hamcrest-library:2.2'	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+
+build.dependsOn buildZip
