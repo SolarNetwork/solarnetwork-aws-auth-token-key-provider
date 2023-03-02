@@ -3,11 +3,13 @@
 This project contains a webapp that demonstrates working with the
 [AWS Lamda Security Token Signing Key Provider](../README.md) in this repository.
 
-![screenshot](docs/solarnetwork-web-api-explorer.png)
+<img alt="Example web app screen shot" src="docs/sn-lamda-token-signing-key-web.png" width="1017">
 
 # Use
 
-Fill in a valid SolarNetwork security token and secret, then start exploring!
+Fill in the URL to your deployed AWS Lamda Security Token Signing Key Provider function and
+the token the function can provide a signing key for, then click the **Execute** button to test
+the authentication process out.
 
 # Building
 
