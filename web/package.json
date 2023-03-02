@@ -1,0 +1,47 @@
+{
+  "name": "solarnetwork-aws-auth-token-key-provider-web",
+  "version": "1.0.0",
+  "description": "Example SolarNetwork AWS Lamda security token signing key provider.",
+  "keywords": [
+    "solarnetwork",
+    "solarquery"
+  ],
+  "homepage": "https://github.com/SolarNetwork/solarnetwork-aws-auth-token-key-provider/web",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "SolarNetwork Foundation",
+    "email": "code@solarnetwork.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SolarNetwork/solarnetwork-aws-auth-token-key-provider.git"
+  },
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "@popperjs/core": "^2.11.6",
+    "solarnetwork-api-core": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-external-helpers": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "core-js": "^3.21.1",
+    "css-loader": "^5.2.7",
+    "exports-loader": "^2.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.5.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.3.1",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^4.8.1",
+    "webpack-merge": "^5.8.0"
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="assets/favicon.png" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<title>
+			SolarNetwork Example AWS Lamda Security Token Signing Key Provider
+			Web App
+		</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>
+						SolarNetwork Example AWS Lamda Security Token Signing
+						Key Provider Web App
+					</h2>
+					<p>
+						Fill in the URL to your deployed Security Token Signing
+						Key Provider and SolarNetwork token. Then click the
+						<b>Execute</b> button to request a signing key and then
+						make a SolarNetwork API call.
+					</p>
+					<div class="alert alert-primary" role="alert">
+						Note the Signing Key Provider must be configured to work
+						with the same <b>Token</b>
+						value you use!
+					</div>
+					<p>
+						When you fill in the form and click <b>Execute</b> the
+						following steps will be performed:
+					</p>
+					<ol>
+						<li>
+							Call the <b>Signing Key Provider URL</b> you
+							provide. This is expected to invoke the Lamda
+							function and return the SolarNetwork signing key.
+						</li>
+						<li>
+							Use the returned signing key to sign a SolarNetwork
+							API call to the
+							<a
+								href="https://github.com/SolarNetwork/solarnetwork/wiki/SolarUser-API#authentication-check"
+								target="_blank"
+								><code>/whoami</code></a
+							>
+							endpoint.
+						</li>
+						<li>
+							Call the <code>/whoami</code> endpoint, and display
+							the result.
+						</li>
+					</ol>
+					<p>
+						The source code for this app is
+						<a
+							href="https://github.com/SolarNetwork/solarnetwork-aws-auth-token-key-provider"
+							>available on GitHub</a
+						>.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<form id="settings">
+						<div class="mb-3">
+							<label class="col-form-label-sm"
+								>Signing Key Provider URL</label
+							>
+							<input
+								class="form-control form-control-sm"
+								type="text"
+								name="url"
+								placeholder="https://abc123.lambda-url.us-west-2.on.aws"
+							/>
+						</div>
+						<div class="mb-3">
+							<label class="col-form-label-sm"
+								>Token
+								<span class="text-muted"
+									>(must be a User token)</span
+								></label
+							>
+							<input
+								class="form-control form-control-sm"
+								type="text"
+								name="token"
+								placeholder="SolarNetwork token"
+							/>
+						</div>
+						<div class="mb-3">
+							<button type="submit" class="btn btn-primary">
+								Execute
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row mb-4 mt-4">
+				<div id="results-container" class="col alert hidden">
+					Results!
+				</div>
+			</div>
+			<footer>Version <%= VERSION %></footer>
+		</div>
+	</body>
+</html>

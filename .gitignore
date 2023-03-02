@@ -2,4 +2,6 @@
 .gradle
 .project
 .settings
+.vscode
 build
+node_modules
