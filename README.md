@@ -33,4 +33,34 @@ Those properties are described as:
 | `key`     | The hex-encoded token signing key. |
 | `date`    | The `YYYYMMDD` date used in the signing key. This is based on the time that the function executes. |
 
+# Building
+
+You can build a `.zip` archive suitable for uploading to an AWS Lamda function by running
+
+```
+# Posix
+./gradlew build
+
+# or, Windows
+.\gradlew.bat build
+```
+
+The archive will be built to `app/build/distributions/s10k-aws-lamda-token-key-provider.zip`.
+
+# Deploying
+
+The following Lamda configuration is necessary:
+
+| Setting | Value |
+|:--------|:------|
+| Runtime | Java 11 |
+| Handler | `net.s10k.aws.lamda.security.keyprovider.TokenKeyProvider` |
+
+The following environment variables must be configured:
+
+| Variable | Description |
+|:---------|:------------|
+| `SN_TOKEN_SECRET` | The token secret to provide signing keys for. |
+
+
 [sn-auth]: https://github.com/SolarNetwork/solarnetwork/wiki/SolarNet-API-authentication-scheme-V2
