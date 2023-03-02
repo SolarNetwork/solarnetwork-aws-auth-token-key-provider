@@ -69,6 +69,8 @@ const exampleApp = function (options) {
 		}
 
 		submitButton.disabled = true;
+
+		// make signing key provider request
 		fetch(url)
 			.then((response) => {
 				submitButton.disabled = false;
